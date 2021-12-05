@@ -15,7 +15,6 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.MaulanaNurhendronotoJmartAK.jmart_android.model.Account;
 import com.MaulanaNurhendronotoJmartAK.jmart_android.request.LoginRequest;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,20 +33,22 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-       final EditText textemail= findViewById(R.id.emailLoginActivity);
-       final EditText textpassword = findViewById(R.id.passwordLoginActivity);
-       final Button  buttonlogin = findViewById(R.id.buttonLoginActivity);
-       final TextView  registerlogin = findViewById(R.id.registerLoginActivity);
+       final EditText emailLogin= findViewById(R.id.emailLoginActivity);
+       final EditText passwordLogin = findViewById(R.id.passwordLoginActivity);
+       final Button  buttonLogin = findViewById(R.id.buttonLoginActivity);
+       final TextView  registerLogin = findViewById(R.id.registerLoginActivity);
 
-        registerlogin.setOnClickListener(new View.OnClickListener() {
+       registerLogin.setOnClickListener(new View.OnClickListener()
+       {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
 
-        buttonlogin.setOnClickListener(new View.OnClickListener()
+        buttonLogin.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public  void onClick (View v)
@@ -74,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 };
-                LoginRequest loginRequest = new LoginRequest(textemail.getText().toString(), textpassword.getText().toString(), listener, null);
+                LoginRequest loginRequest = new LoginRequest(emailLogin.getText().toString(), passwordLogin.getText().toString(), listener, null);
                 RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
                 requestQueue.add(loginRequest);
             }

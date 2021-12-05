@@ -28,12 +28,12 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-       final EditText nameregister = findViewById(R.id.nameRegisterActivity);
-       final EditText emailregister = findViewById(R.id.emailRegisterActivity);
-       final EditText passwordregister = findViewById(R.id.passwordRegisterActivity);
-       final Button  registerbutton = findViewById(R.id.buttonRegisterActivity);
+       final EditText nameRegister = findViewById(R.id.nameRegisterActivity);
+       final EditText emailRegister = findViewById(R.id.emailRegisterActivity);
+       final EditText passwordRegister = findViewById(R.id.passwordRegisterActivity);
+       final Button  registerButton = findViewById(R.id.buttonRegisterActivity);
 
-        registerbutton.setOnClickListener(new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Response.Listener<String> listener = new Response.Listener<String>() {
@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             if(jsonObject!=null)
                             {
-                                Toast.makeText(RegisterActivity.this, "Registration success", Toast.LENGTH_SHORT);
+                                Toast.makeText(RegisterActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 loggedAccount = gson.fromJson(jsonObject.toString(),Account.class);
                                 startActivity(intent);
@@ -52,11 +52,11 @@ public class RegisterActivity extends AppCompatActivity {
                         catch (JSONException e)
                         {
                             e.printStackTrace();
-                            Toast.makeText(RegisterActivity.this, "registration failed", Toast.LENGTH_SHORT);
+                            Toast.makeText(RegisterActivity.this, "registration failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 };
-                RegisterRequest registerRequest = new RegisterRequest(nameregister.getText().toString(), emailregister.getText().toString(), passwordregister.getText().toString(), listener, null);
+                RegisterRequest registerRequest = new RegisterRequest(nameRegister.getText().toString(), emailRegister.getText().toString(), passwordRegister.getText().toString(), listener, null);
                 RequestQueue requestQueue = Volley.newRequestQueue(RegisterActivity.this);
                 requestQueue.add(registerRequest);
             }
