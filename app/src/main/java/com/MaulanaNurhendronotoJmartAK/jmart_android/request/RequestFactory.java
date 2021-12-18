@@ -6,10 +6,25 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * RequestFactory class :
+ * parent class for other request related class
+ */
 public class RequestFactory
 {
     private static final String URL_FORMAT_ID = "http://10.0.2.2:8070/%s/%d";
     private static final String URL_FORMAT_PAGE = "http://10.0.2.2:8070/%s/page?page=%s&pageSize=%s";
+
+    /**
+     * getById method
+     * achieve user account through id
+     *
+     * @param parentURI
+     * @param id
+     * @param listener
+     * @param errorListener
+     * @return user account
+     */
     public static StringRequest getById
             (
                     String parentURI,
@@ -21,6 +36,19 @@ public class RequestFactory
         String url = String.format(URL_FORMAT_ID, parentURI, id);
         return new StringRequest(Request.Method.GET, url, listener, errorListener);
     }
+
+    /**
+     * getPage method
+     * display page
+     *
+     *
+     * @param parentURI
+     * @param page
+     * @param pageSize
+     * @param listener
+     * @param errorListener
+     * @return page
+     */
     public static StringRequest getPage
             (
                     String parentURI,

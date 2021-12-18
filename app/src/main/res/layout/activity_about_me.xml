@@ -1,155 +1,434 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutMeActivity">
-
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    tools:context=".AboutMeActivity"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/account_constraint"
+        android:layout_width="358dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="20dp"
+        >
+
+        <TextView
+            android:id="@+id/tulisan_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="220dp"
+            android:layout_marginBottom="5dp"
+            android:text="Account Details"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/detailproduk_table_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TableLayout
+            android:id="@+id/detailproduk_table_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/account_constraint"
+            android:layout_marginTop="52dp"
+            android:stretchColumns="1"
+            app:layout_constraintTop_toBottomOf="@+id/account_constraint"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TableRow
+                android:id="@+id/name_table_row"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+
+                    android:id="@+id/name_textview"
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="Name"
+                    android:textSize="16sp" />
+
+                <TextView
+
+                    android:id="@+id/name_aboutMeActivity"
+                    android:gravity="right"
+                    android:padding="3dip"
+
+                    android:text="null"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/address_table_row"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/address_textview"
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="Address"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/address_aboutMeActivity"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="null"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/balance_table_row"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/balance_textview"
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="Balance"
+                    android:textSize="16sp" />
+
+                <TextView
+
+                    android:id="@+id/balance_aboutMeActivity"
+                    android:gravity="right"
+                    android:padding="3dip"
+
+                    android:text="null"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/topup_table_row"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/topup_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Top Up Amount"
+
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/topup_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#FFFFFF"
+                        android:inputType="numberDecimal" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/button_topup"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:text="TOP UP" />
+
+
+            </TableRow>
+
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button_register"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.6"
+        android:text="REGISTER STORE"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/register_constraint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_constraint"
+        app:layout_constraintVertical_bias="0.233" />
+
+    <!--    form registrasi store-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/register_constraint"
+        android:layout_width="360dp"
+        android:layout_height="365dp"
+        android:layout_below="@id/account_constraint"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_constraint">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_view"
-            android:layout_width="339dp"
-            android:layout_height="674dp"
-            android:layout_gravity="center"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
+            android:id="@+id/register_cardview"
+            android:layout_width="362dp"
+            android:layout_height="362dp"
+            android:layout_margin="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="3dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp"
+            app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+
+            <LinearLayout
+                android:id="@+id/register_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
 
 
                 <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="135dp"
-                    android:layout_height="41dp"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="28dp"
-                    android:text="Account Details"
-                    android:textSize="15dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/nama_abme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="31dp"
-                    android:text="Name"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-                <TextView
-                    android:id="@+id/email_abme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="24dp"
-                    android:text="Email"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nama_abme" />
-
-                <TextView
-                    android:id="@+id/balance_abme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="28dp"
-                    android:text="Balance"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/email_abme" />
-
-                <EditText
-                    android:id="@+id/topup_abme"
-                    android:layout_width="177dp"
-                    android:layout_height="46dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="232dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Top Up Amount"
-                    android:textColor="@color/black"
-                    android:textSize="13dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/topup_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="380dp"
-                    android:backgroundTint="#FF6200EE"
-                    android:text="Top Up"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.567"
-                    app:layout_constraintStart_toEndOf="@+id/topup_abme" />
-
-                <Button
-                    android:id="@+id/register_abme"
-                    android:layout_width="280dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="50dp"
-                    android:backgroundTint="#FF6200EE"
-                    android:text="Register Store"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.644"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/topup_abme"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <TextView
-                    android:id="@+id/output_nama"
-                    android:textAlignment="textEnd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="156dp"
-                    android:layout_marginBottom="24dp"
-                    android:text="TextView"
-                    app:layout_constraintBottom_toTopOf="@+id/output_email"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.355"
-                    app:layout_constraintStart_toEndOf="@+id/nama_abme" />
-
-                <TextView
-                    android:id="@+id/output_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="28dp"
-                    android:text="TextView"
-                    app:layout_constraintBottom_toTopOf="@+id/output_balance"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.857"
-                    app:layout_constraintStart_toEndOf="@+id/email_abme" />
-
-                <TextView
-                    android:id="@+id/output_balance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:text="TextView"
-                    app:layout_constraintBottom_toTopOf="@+id/topup_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.846"
-                    app:layout_constraintStart_toEndOf="@+id/balance_abme" />
+                    android:text="Register Store"
+                    android:textSize="16sp" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/store_textlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@color/white">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/store_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/address_textlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Address" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_textlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:inputType="phone|number"
+                    app:boxBackgroundColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone Number" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+
+                    android:id="@+id/buttons_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button_register_store"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="REGISTER" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.2"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/button_cancel_store"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="CANCEL" />
+
+                </LinearLayout>
+
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+    <!--    menampilkan hasil registrasi store-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/store_constraint"
+        android:visibility="invisible"
+        android:layout_width="369dp"
+        android:layout_height="424dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_constraint">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/store_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="240dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/store_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="30dp"
+                    android:text="Store" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/store_name_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginVertical="5dp"
+                        android:text="Name" />
+
+                    <TextView
+                        android:id="@+id/store_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/store_address_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginVertical="5dp"
+                        android:text="Address" />
+
+                    <TextView
+                        android:id="@+id/store_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/store_phone_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginVertical="5dp"
+                        android:text="Phone Number" />
+
+                    <TextView
+                        android:id="@+id/store_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

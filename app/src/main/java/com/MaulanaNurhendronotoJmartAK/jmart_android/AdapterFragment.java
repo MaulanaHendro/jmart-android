@@ -9,34 +9,29 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import java.util.ArrayList;
 
-public class AdapterFragment extends FragmentPagerAdapter
+public class AdapterFragment extends FragmentStateAdapter
 {
-    private final ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-    private final ArrayList<String> fragmentTittle = new ArrayList<>();
-
-    public AdapterFragment(@NonNull FragmentManager fm, int behavior) {
-        super(fm, behavior);
+    public AdapterFragment
+            (
+                    @NonNull FragmentManager fm,
+                    @NonNull Lifecycle lifecycle
+            )
+    {
+        super(fm, lifecycle);
     }
 
     @NonNull
     @Override
-    public Fragment getItem(int position) {
-        return fragmentArrayList.get(position);
+    public Fragment createFragment(int position)
+    {
+        if (position == 1) {
+            return new FilterFragment();
+        }
+        return new ProductFragment();
     }
 
     @Override
-    public int getCount() {
-        return fragmentArrayList.size();
-    }
-
-    public void addFragment (Fragment fragment, String title){
-        fragmentArrayList.add(fragment);
-        fragmentTittle.add(title);
-    }
-
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return fragmentTittle.get(position);
+    public int getItemCount() {
+        return 2;
     }
 }

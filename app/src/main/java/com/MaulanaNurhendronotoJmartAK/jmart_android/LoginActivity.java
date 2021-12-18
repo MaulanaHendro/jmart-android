@@ -3,7 +3,6 @@ package com.MaulanaNurhendronotoJmartAK.jmart_android;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,67 +17,65 @@ import com.MaulanaNurhendronotoJmartAK.jmart_android.request.LoginRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginActivity extends AppCompatActivity {
-
+/**
+ * LoginActivity Class :
+ * display login page
+ *
+ * @author Maulana Nurhendronoto
+ */
+public class LoginActivity extends AppCompatActivity
+{
     private static final Gson gson = new Gson();
-    private static Account loggedAccount = null;
+    public static Account loggedAccount = null;
 
-    public static Account getLoggedAccount()
-    {
+    public static Account getLoggedAccount(){
         return loggedAccount;
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-       final EditText emailLogin= findViewById(R.id.emailLoginActivity);
-       final EditText passwordLogin = findViewById(R.id.passwordLoginActivity);
-       final Button  buttonLogin = findViewById(R.id.buttonLoginActivity);
-       final TextView  registerLogin = findViewById(R.id.registerLoginActivity);
+        EditText textEmail = findViewById(R.id.email_loginActivity);
+        EditText textPassword = findViewById(R.id.password_loginActivity);
+        Button logInButton = findViewById(R.id.button_loginActivity);
 
-       registerLogin.setOnClickListener(new View.OnClickListener()
-       {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        buttonLogin.setOnClickListener(new View.OnClickListener()
+        logInButton.setOnClickListener(v ->
         {
-            @Override
-            public  void onClick (View v)
+            Response.Listener<String> listener = new Response.Listener<String>()
             {
-                Response.Listener<String> listener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response)
+                @Override
+                public void onResponse(String response)
+                {
+                    try
                     {
-                        try
+                        JSONObject object = new JSONObject(response);
+                        if(object != null)
                         {
-                            JSONObject jsonObject = new JSONObject(response);
-                            if(jsonObject!=null)
-                            {
-                                Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                loggedAccount = gson.fromJson(jsonObject.toString(),Account.class);
-                                startActivity(intent);
-                            }
-                        }
-                        catch (JSONException e)
-                        {
-                            e.printStackTrace();
-                            Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Log in berhasil!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            loggedAccount = gson.fromJson(object.toString(), Account.class);
+                            startActivity(intent);
                         }
                     }
-                };
-                LoginRequest loginRequest = new LoginRequest(emailLogin.getText().toString(), passwordLogin.getText().toString(), listener, null);
-                RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-                requestQueue.add(loginRequest);
-            }
+                    catch (JSONException e)
+                    {
+                        e.printStackTrace();
+                        Toast.makeText(LoginActivity.this, "Log in gagal!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            };
+            LoginRequest loginRequest = new LoginRequest(textEmail.getText().toString(), textPassword.getText().toString(), listener, null);
+            RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
+            requestQueue.add(loginRequest);
+        });
+        TextView register = findViewById(R.id.register_loginActivity);
+        register.setOnClickListener(v ->
+        {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
     }
 }

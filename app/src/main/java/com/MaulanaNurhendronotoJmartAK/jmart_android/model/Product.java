@@ -1,5 +1,11 @@
 package com.MaulanaNurhendronotoJmartAK.jmart_android.model;
 
+/**
+ * Product class :
+ * return value of name and price
+ *
+ * @author Maulana Nurhendronoto
+ */
 public class Product extends Serializable{
     public int accountId;
     public ProductCategory category;
@@ -21,6 +27,6 @@ public class Product extends Serializable{
         String discount = "discount: " + this.discount + "\n";
         String shipmentPlans = "shipmentPlans: " + this.shipmentPlans + "\n";
 
-        return name+weight+conditionUsed+category+accountId+price+discount+shipmentPlans;
+        return name+price;
     }
 }

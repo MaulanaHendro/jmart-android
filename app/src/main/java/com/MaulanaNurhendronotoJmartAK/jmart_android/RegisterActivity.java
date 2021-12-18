@@ -19,6 +19,12 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * RegisterActivity Class :
+ * display register page
+ *
+ * @author Maulana Nurhendronoto
+ */
 public class RegisterActivity extends AppCompatActivity {
     private static final Gson gson = new Gson();
     private static Account loggedAccount = null;
@@ -28,10 +34,10 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-       final EditText nameRegister = findViewById(R.id.nameRegisterActivity);
-       final EditText emailRegister = findViewById(R.id.emailRegisterActivity);
-       final EditText passwordRegister = findViewById(R.id.passwordRegisterActivity);
-       final Button  registerButton = findViewById(R.id.buttonRegisterActivity);
+       final EditText nameRegister = findViewById(R.id.name_registerActivity);
+       final EditText emailRegister = findViewById(R.id.email_registerActivity);
+       final EditText passwordRegister = findViewById(R.id.password_registerActivity);
+       final Button  registerButton = findViewById(R.id.registerButton_registerActivity);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             if(jsonObject!=null)
                             {
-                                Toast.makeText(RegisterActivity.this, "Registration success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Account registration success", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 loggedAccount = gson.fromJson(jsonObject.toString(),Account.class);
                                 startActivity(intent);
@@ -52,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
                         catch (JSONException e)
                         {
                             e.printStackTrace();
-                            Toast.makeText(RegisterActivity.this, "registration failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Account registration failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 };

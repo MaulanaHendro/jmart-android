@@ -3,13 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21770833333333334" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.21770833333333334" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.19479166666666667" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/activity_about_me.xml" value="0.33" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/activity_account_history.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/activity_create_product.xml" value="0.25" />
         <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/activity_payment.xml" value="0.33" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/activity_product_detail.xml" value="0.25" />
         <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/activity_register.xml" value="0.2015625" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/activity_register_store.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/fragment_filter.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/fragment_first.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/fragment_product.xml" value="0.33" />
+        <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/fragment_second.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/layout/registeractivity.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/USER/Documents/Hendro/Java Programming BlueJ/jmart-android/app/src/main/res/menu/menu_main.xml" value="0.25" />
       </map>
