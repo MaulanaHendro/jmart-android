@@ -84,11 +84,11 @@ public class PaymentActivity extends AppCompatActivity {
                             JSONObject object = new JSONObject(response);
                             LoginActivity.getLoggedAccount().balance -= ProductFragment.productClicked.price;
                             payment = gson.fromJson(object.toString(), Payment.class);
-                            Toast.makeText(PaymentActivity.this,"Silakan melakukan pembayaran",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PaymentActivity.this,"enter payment",Toast.LENGTH_SHORT).show();
 
                         }catch (JSONException e)
                         {
-                            Toast.makeText(PaymentActivity.this,"Ada eror",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PaymentActivity.this,"there's an error",Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
                         System.out.println(payment);

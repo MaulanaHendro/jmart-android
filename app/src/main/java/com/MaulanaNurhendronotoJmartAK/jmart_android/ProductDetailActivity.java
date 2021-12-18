@@ -73,7 +73,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Toast.makeText(ProductDetailActivity.this, "BELI", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProductDetailActivity.this, "BUY", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ProductDetailActivity.this, PaymentActivity.class);
                 startActivity(intent);
             }

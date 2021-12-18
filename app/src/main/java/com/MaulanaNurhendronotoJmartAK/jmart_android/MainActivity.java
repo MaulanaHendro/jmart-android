@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements ProductFragment.P
         MenuItem create = menu.findItem(R.id.add);
         MenuItem search = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) search.getActionView();
-        searchView.setQueryHint("Apa yang ingin Anda cari?");
+        searchView.setQueryHint("what do you want to find?");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
         {

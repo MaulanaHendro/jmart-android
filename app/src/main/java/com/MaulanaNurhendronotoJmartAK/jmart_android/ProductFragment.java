@@ -176,7 +176,7 @@ public class ProductFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(getContext(),"Chaning pages", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Changing pages", Toast.LENGTH_SHORT).show();
                 page = Integer.parseInt(inputPage.getText().toString()) - 1;
                 getActivity().finish();
                 getActivity().startActivity(getActivity().getIntent());
